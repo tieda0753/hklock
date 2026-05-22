@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>秒開鎖 - 24小時全港應急開鎖中心 | 夾萬、住宅、電子鎖、汽車開鎖</title>
+    <meta name="description" content="全港最快24小時上門開鎖服務。專門處理各類夾萬無電、忘記密碼、住宅反鎖、智能電子鎖沒電、汽車尾箱開啟。免破壞無損開鎖，價格透明。">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #ffcc00;
+            --text-color: #333;
+            --bg-light: #f8f9fa;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            background-color: #fff;
+            line-height: 1.6;
+            padding-bottom: 80px; /* 為底部固定按鈕留出空間 */
+        }
+
+        /* 頂部 Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .logo i {
+            margin-right: 8px;
+            font-size: 24px;
+        }
+
+        .logo span {
+            color: #ff9900;
+            margin-left: 2px;
+        }
+
+        /* Hero 橫幅廣告區域 */
+        .hero {
+            background: linear-gradient(135deg, #0052d4, #4364f7, #6fb1fc);
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* 核心業務：六宮格區域 */
+        .services-section {
+            padding: 30px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary-color);
+            margin: 8px auto 0;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 手機端預設雙列 */
+            gap: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr); /* 電腦端變三列 */
+            }
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
+        }
+
+        .card:active {
+            transform: scale(0.98);
+        }
+
+        .card i {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #222;
+        }
+
+        .card p {
+            font-size: 12px;
+            color: #777;
+            line-height: 1.4;
+        }
+
+        /* 優勢介紹區 */
+        .advantages {
+            background-color: var(--bg-light);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .adv-item {
+            margin-bottom: 20px;
+        }
+
+        .adv-item h4 {
+            color: var(--primary-color);
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .adv-item p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* 底部固定雙按鈕（營銷大殺器） */
+        .bottom-actions {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            box-shadow: 0 -3px 15px rgba(0,0,0,0.1);
+            display: flex;
+            padding: 10px 15px;
+            gap: 10px;
+            z-index: 999;
+        }
+
+        .btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn-phone {
+            background-color: #25d366; /* WhatsApp 綠 */
+        }
+
+        .btn-call {
+            background-color: #0066cc; /* 電話藍 */
+        }
+
+        .btn i {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-key"></i>秒開鎖<span>.HK</span>
+        </div>
+        <div style="font-size: 12px; color: #666; font-weight: bold;">
+            <i class="fa-solid fa-circle" style="color: #25d366; font-size: 10px; margin-right: 3px;"></i>師傅在線
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>24小時全港應急開鎖</h1>
+        <p>最快 15-20 分鐘到達 · 專業無損開鎖</p>
+        <div class="badges">
+            <div class="badge"><i class="fa-solid fa-bolt"></i> 極速上門</div>
+            <div class="badge"><i class="fa-solid fa-coins"></i> 價錢公道</div>
+            <div class="badge"><i class="fa-solid fa-shield-halved"></i> 安全可靠</div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <h2 class="section-title">專業服務項目</h2>
+        <div class="grid-container">
+            
+            <div class="card">
+                <i class="fa-solid fa-vault"></i>
+                <h3>夾萬應急開鎖</h3>
+                <p>各類保險箱、忘記密碼、沒電無損通電開啟。</p>
+            </div>
+            
+            <div class="card">
+                <i class="fa-solid fa-microchip"></i>
+                <h3>智能電子鎖</h3>
+                <p>指紋鎖、密碼鎖沒電卡死緊急處理，各類維修安裝。</p>
+            </div>
+            
+            <div class="card">
+                <i class="fa-solid fa-house-lock"></i>
+                <h3>住宅開鎖</h3>
+                <p>大門反鎖、房門鎖、十字鎖，極速到場不傷門鎖。</p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-key-skeleton"></i>
+                <h3>專業換鎖</h3>
+                <p>更換大門鎖膽、升級防盜鎖、新樓收樓換鎖。</p>
+            </div>
+            
+            <div class="card">
+                <i class="fa-solid fa-car"></i>
+                <h3>汽車開鎖</h3>
+                <p>各類私家車、貨車反鎖，尾箱緊急開啟。</p>
+            </div>
+            
+            <div class="card">
+                <i class="fa-solid fa-building"></i>
+                <h3>商業開鎖</h3>
+                <p>寫字樓、商舖玻璃門鎖、捲閘鎖開啟與維修。</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="advantages">
+        <div class="adv-item">
+            <h4><i class="fa-solid fa-circle-check"></i> 專業無損開鎖</h4>
+            <p>配備先進解鎖工具，95% 以上情況做到不傷鎖體、不壞大門。</p>
+        </div>
+        <div class="adv-item">
+            <h4><i class="fa-solid fa-money-bill-wave"></i> 報價清晰透明</h4>
+            <p>電話/WhatsApp 先報價、後上門，絕無後期隱形加價。</p>
+        </div>
+    </section>
+
+    <div class="bottom-actions">
+        <a href="https://wa.me/85212345678?text=你好，我想查詢開鎖服務" class="btn btn-phone" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>WhatsApp 報價
+        </a>
+        <a href="tel:+85212345678" class="btn btn-call">
+            <i class="fa-solid fa-phone"></i>直撥電話
+        </a>
+    </div>
+
+</body>
+</html>
